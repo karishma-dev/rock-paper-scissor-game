@@ -25,9 +25,15 @@ function App() {
   const [easy, setEasy] = useState(true);
 
   const random = () => {
-    let len = easyArr.length;
+    let arr;
+    if(easy){
+      arr= easyArr;
+    }else{
+      arr=hardArr;
+    }
+    let len = arr.length;
     let randomIndex = Math.floor(Math.random() * len);
-    return easyArr[randomIndex];
+    return arr[randomIndex];
   }
   function showResult(key,i){
     setResult(true);
@@ -137,6 +143,10 @@ function App() {
             }
             break;
 
+            default:
+              alert("Error");
+              break;
+
     }
   }
   const showRules = (e) => {
@@ -150,7 +160,7 @@ function App() {
 
   window.onclick = function(event) {
     let modal = document.getElementById("myModal");
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = "none";
     }
   }

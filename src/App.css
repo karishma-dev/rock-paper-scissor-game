@@ -29,6 +29,8 @@
 body{
   background-image: var(--body);
   color: white;
+  overflow: hidden;
+  height: fit-content;
 }
 
 /* Button */
@@ -63,7 +65,7 @@ span{
 .score{
   background-color: white;
   width: fit-content;
-  padding: 30px 50px;
+  padding: 10px 10px;
   border-radius: 10px;
   text-align: center;
 }
@@ -73,17 +75,17 @@ span{
   color: var(--Score-Text);
 }
 #score{
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--Dark-Text);
 }
 
 /* The switch - the box around the slider */
 #switch-container{
-  margin-bottom: 35px;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1rem;
   font-weight: bold;
+  margin: 0 auto 40px;
 }
 .switch{
   position: relative;
@@ -140,6 +142,8 @@ input:checked + .slider:before {
   margin: 80px auto 0px;
   display: grid;
   grid-template-columns: repeat(2, auto);
+  column-gap: 13vw;
+  position: relative;
 }
 .hardbtn-container{
   width: fit-content;
@@ -157,16 +161,16 @@ input:checked + .slider:before {
   background-clip: padding-box;
   border-radius: 50%;
   cursor: pointer;
-  margin: 0px 70px;
+  margin: 30px 50px 20px;
   width: fit-content;
 }
 .button::after{
   content: '';
   position: absolute;
-  top: -15px;
-  bottom: -15px;
-  left: -15px;
-  right: -15px;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
   z-index: -1;
   border-radius: 50%;
 }
@@ -174,35 +178,42 @@ input:checked + .slider:before {
   box-shadow: 0px 6px 2px 2px gray inset;
   width: fit-content;
   border-radius: 50%;
-  padding: 33px;
+  padding: 20px;
 }
 .button:hover{
   box-shadow: 0px 0px 10px 10px rgb(104, 101, 101);
 }
 .easybtn-container #rock{
   position: absolute;
-  bottom: 12vh;
-  left: 46%;
-  margin: 0px;
+  bottom: -180px;
+  left: 35vw;
+  margin: 0px auto;
 }
 .hardbtn-container #scissor {
-  left: -130px;
+  left: -100px;
 }
 .hardbtn-container #paper{
-  top: 120px;
-  left: 40px;
+  /* top: 120px; */
+  top: 60px;
+  left: 0px;
 }
 .hardbtn-container #rock{
-  top: 300px;
-  left: -30px;
+  /* top: 300px;
+  left: -30px; */
+  top: 170px;
+  left: -40px;
 }
 .hardbtn-container #lizard{
-  right: -50px;
-  top: 290px;
+  /* right: -50px;
+  top: 290px; */
+  top: 170px;
+  right: -30px;
 }
 .hardbtn-container #spock{
-  right: 50px;
-  top: 120px;
+  /* right: 50px;
+  top: 120px; */
+  top: 60px;
+  right: 20px;
 }
 #paper::after, #paper1::after {
   background: var(--paper);
@@ -224,15 +235,19 @@ input:checked + .slider:before {
 .result-container{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #status{
   align-self: center;
   width: fit-content;
-  margin-top: 60px;
-  margin: 60px 40px 0px;
+  margin: 40px auto 0px;
+  position: absolute;
+  bottom: 25vh;
+  left: 37vw;
 }
 #status span{
-    font-size: 2.3rem;
+    /* font-size: 2.3rem; */
+    font-size: 1.5rem;
     margin-bottom: 15px;
     font-weight: bold;
     text-transform: uppercase;
@@ -240,15 +255,21 @@ input:checked + .slider:before {
 #play-again{
   color: var(--status-text);
   background-color: white;
-  padding: 12px 45px;
-  font-size: 1.1rem;
+  padding: 9px 30px;
+  font-size: 1rem;
   border-radius: 10px;
   border: 0;
 }
+.btn{
+  position: relative;
+}
 .btn-title{
   text-transform: uppercase;
-  font-size: 1.8rem;
-  margin: 0px 0px 30px;
+  font-size: 1rem;
+  /* text-align: center; */
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
 }
 
 /* Rules button */
@@ -258,9 +279,10 @@ input:checked + .slider:before {
   border-radius: 8px;
   color: white;
   padding: 10px 20px;
+  width: fit-content;
   position: absolute;
-  bottom: 30px;
-  right: 50px;
+  bottom: 50px;
+  right: 30px;
 }
 
 /* Rules modal */
@@ -271,6 +293,7 @@ input:checked + .slider:before {
   width: 100%;
   background-color: rgba(0,0,0,0.4);
   display: none;
+  height: 100%;
 }
 .modal-content{
   background: white;
@@ -293,4 +316,72 @@ input:checked + .slider:before {
 }
 #modal-title span{
   display: inline;
+}
+
+/* Media Queries */
+@media (min-width: 800px) {
+  #switch-container{
+      font-size: 1.7rem;
+  }
+  .score{
+    padding: 30px 50px;
+  }
+  #score{
+     font-size: 2.8rem;
+  }
+  .result-container{
+    gap: 0px;
+  }
+  #status{
+    position: static;
+  }
+  #status span{
+    font-size: 2.3rem;
+  }
+  #play-again{
+    padding: 12px 45px;
+  }
+  .btn-title{
+    font-size: 1.8rem;
+    position: static;
+  }
+  .easybtn-container #rock{
+    left: 19vw;
+  }
+  .hardbtn-container #scissor{
+    left: -130px;
+  }
+  #status{
+    margin: 40px 40px 0px;
+  }
+  .button{
+    margin: 30px 80px;
+  }
+  .button::after{
+     top: -15px;
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+  }
+  .button img{
+    padding: 33px;
+  }
+  .hardbtn-container #scissor{
+    left: -150px;
+  }
+  .hardbtn-container #paper{
+    top: 120px;
+  }
+  .hardbtn-container #rock{
+    top: 300px;
+    left: -30px;
+  }
+  .hardbtn-container #lizard{
+    right: -30px;
+    top: 300px;
+  }
+  .hardbtn-container #spock{
+    right: 50px;
+    top: 120px; 
+  }
 }
