@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/rock-paper-scissor-game/static/css/main.70daa672.css",
+    "main.css": "/rock-paper-scissor-game/static/css/main.660de18e.css",
     "main.js": "/rock-paper-scissor-game/static/js/main.ee6a67f5.js",
     "static/js/787.fa51cb89.chunk.js": "/rock-paper-scissor-game/static/js/787.fa51cb89.chunk.js",
     "index.html": "/rock-paper-scissor-game/index.html",
-    "main.70daa672.css.map": "/rock-paper-scissor-game/static/css/main.70daa672.css.map",
+    "main.660de18e.css.map": "/rock-paper-scissor-game/static/css/main.660de18e.css.map",
     "main.ee6a67f5.js.map": "/rock-paper-scissor-game/static/js/main.ee6a67f5.js.map",
     "787.fa51cb89.chunk.js.map": "/rock-paper-scissor-game/static/js/787.fa51cb89.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70daa672.css",
+    "static/css/main.660de18e.css",
     "static/js/main.ee6a67f5.js"
   ]
 }
