@@ -320,40 +320,13 @@ input:checked + .slider:before {
 
 /* Media Queries */
 @media (min-width: 800px) {
+
+  /* Switch Container */
   #switch-container{
-      font-size: 1.7rem;
-  }
-  .score{
-    padding: 30px 50px;
-  }
-  #score{
-     font-size: 2.8rem;
-  }
-  .result-container{
-    gap: 0px;
-  }
-  #status{
-    position: static;
-  }
-  #status span{
-    font-size: 2.3rem;
-  }
-  #play-again{
-    padding: 12px 45px;
-  }
-  .btn-title{
-    font-size: 1.8rem;
-    position: static;
-  }
-  .easybtn-container #rock{
-    left: 19vw;
-  }
-  .hardbtn-container #scissor{
-    left: -130px;
-  }
-  #status{
-    margin: 40px 40px 0px;
-  }
+    font-size: 1.7rem;
+  } 
+
+  /* Buttons */
   .button{
     margin: 30px 80px;
   }
@@ -365,6 +338,12 @@ input:checked + .slider:before {
   }
   .button img{
     padding: 33px;
+  }
+  .easybtn-container #rock{
+    left: 19vw;
+  }
+  .hardbtn-container #scissor{
+    left: -130px;
   }
   .hardbtn-container #scissor{
     left: -150px;
@@ -383,5 +362,30 @@ input:checked + .slider:before {
   .hardbtn-container #spock{
     right: 50px;
     top: 120px; 
+  }
+
+  /* Result Container */
+  .result-container{
+    gap: 0px;
+  }
+  .score{
+    padding: 30px 50px;
+  }
+  #score{
+     font-size: 2.8rem;
+  }
+  #status{
+    position: static;
+    margin: 40px 40px 0px;
+  }
+  #status span{
+    font-size: 2.3rem;
+  }
+  #play-again{
+    padding: 12px 45px;
+  }
+  .btn-title{
+    font-size: 1.8rem;
+    position: static;
   }
 }
