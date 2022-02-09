@@ -85,7 +85,7 @@ span{
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  margin: 0 auto 40px;
+  margin: 0 auto 15px;
 }
 .switch{
   position: relative;
@@ -139,7 +139,7 @@ input:checked + .slider:before {
 /* Buttons container */
 .easybtn-container{
   width: fit-content;
-  margin: 80px auto 0px;
+  margin: 50px auto 0px;
   display: grid;
   grid-template-columns: repeat(2, auto);
   column-gap: 13vw;
@@ -186,7 +186,7 @@ input:checked + .slider:before {
 .easybtn-container #rock{
   position: absolute;
   bottom: -180px;
-  left: 35vw;
+  left: 185px;
   margin: 0px auto;
 }
 .hardbtn-container #scissor {
@@ -333,7 +333,7 @@ input:checked + .slider:before {
     padding: 33px;
   }
   .easybtn-container #rock{
-    left: 19vw;
+    left: 330px;
   }
   .hardbtn-container #scissor{
     left: -130px;
