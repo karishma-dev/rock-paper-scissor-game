@@ -1,38 +1,296 @@
-.App {
-  text-align: center;
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+/* Colors */
+:root{
+  --paper: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --scissor: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --rock: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --lizard: radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --spock: radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --body: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+  --body: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --status-text: hsl(229, 25%, 31%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Universal Selector */
+*, 
+*::before, 
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Body */
+body{
+  background-image: var(--body);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Button */
+button{
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Span */
+span{
+  display: block;
+  text-align: center;
+}
+
+/* Name and score container */
+.name-score{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 30vw;
+  border: 3px solid var(--Header-Outline);
+  border-radius: 10px;
+  margin: 50px auto 30px;
+  width: fit-content;
+}
+
+/* Logo */
+#logo{
+  height: 150px;
+}
+
+/* Score */
+.score{
+  background-color: white;
+  width: fit-content;
+  padding: 30px 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+#score-text{
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  color: var(--Score-Text);
+}
+#score{
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--Dark-Text);
+}
+
+/* The switch - the box around the slider */
+#switch-container{
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+  margin: 0 20px;
+  border-radius: 50px;
+
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(122, 128, 97);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 40px;
+  left: 8px;
+  bottom: 4px;
+  background-color: rgb(186, 235, 208);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50px;
+}
+input:checked + .slider {
+  background-color: #b564d4;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Buttons container */
+.easybtn-container{
+  width: fit-content;
+  margin: 80px auto 0px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+.hardbtn-container{
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+.hardbtn-container .button{
+  position: absolute;
+}
+/* buttons [rock,paper,scissor,lizard,spock] */
+.button{
+  position: relative;
+	border: 10px solid transparent;
+  background: #f2f2f2;
+  background-clip: padding-box;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0px 70px;
+  width: fit-content;
+}
+.button::after{
+  content: '';
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  left: -15px;
+  right: -15px;
+  z-index: -1;
+  border-radius: 50%;
+}
+.button img{
+  box-shadow: 0px 6px 2px 2px gray inset;
+  width: fit-content;
+  border-radius: 50%;
+  padding: 33px;
+}
+.button:hover{
+  box-shadow: 0px 0px 10px 10px rgb(104, 101, 101);
+}
+.easybtn-container #rock{
+  position: absolute;
+  bottom: 12vh;
+  left: 46%;
+  margin: 0px;
+}
+.hardbtn-container #scissor {
+  left: -130px;
+}
+.hardbtn-container #paper{
+  top: 120px;
+  left: 40px;
+}
+.hardbtn-container #rock{
+  top: 300px;
+  left: -30px;
+}
+.hardbtn-container #lizard{
+  right: -50px;
+  top: 290px;
+}
+.hardbtn-container #spock{
+  right: 50px;
+  top: 120px;
+}
+#paper::after, #paper1::after {
+  background: var(--paper);
+}
+#scissor::after, #scissor1::after{
+  background: var(--scissor);
+}
+#rock::after, #rock1::after{
+  background: var(--rock);
+}
+#lizard::after, #lizard1::after{
+  background: var(--lizard);
+}
+#spock::after, #spock1::after{
+  background: var(--spock);
+}
+
+/* Result container */
+.result-container{
+  display: flex;
+  justify-content: center;
+}
+#status{
+  align-self: center;
+  width: fit-content;
+  margin-top: 60px;
+  margin: 60px 40px 0px;
+}
+#status span{
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#play-again{
+  color: var(--status-text);
+  background-color: white;
+  padding: 12px 45px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 0;
+}
+.btn-title{
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin: 0px 0px 30px;
+}
+
+/* Rules button */
+#rules{
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+}
+
+/* Rules modal */
+.modal{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: none;
+}
+.modal-content{
+  background: white;
+  margin: 12% auto;
+  padding: 20px 50px 50px;
+  border: 1px solid black;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  color: black;
+}
+#modal-title{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: baseline;
+  margin: 10px 0px 40px;
+  column-gap: 13vw;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+#modal-title span{
+  display: inline;
 }
