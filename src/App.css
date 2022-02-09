@@ -149,6 +149,7 @@ input:checked + .slider:before {
   width: fit-content;
   margin: 0 auto;
   position: relative;
+  top: -30px;
 }
 .hardbtn-container .button{
   position: absolute;
