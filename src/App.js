@@ -1,7 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Buttons from './Buttons';
+import Result from './Result';
 
+// Objects and Arrays
 const easyArr = ["paper", "scissor", "rock"];
 const hardArr = ["paper", "scissor", "rock", "lizard", "spock"];
 const imgArr = ["images/icon-paper.svg", "images/icon-scissors.svg","images/icon-rock.svg", "images/icon-lizard.svg", "images/icon-spock.svg"];
@@ -17,13 +20,18 @@ const hardObj = {
   "lizard": "images/icon-lizard.svg",
   "spock" : "images/icon-spock.svg"
 }
-function App() {
+
+// App
+export default function App() {
+
+  // States
   const [display, setDisplay] = useState(easyObj);
   const [score, setScore] = useState(0); 
   const [status, setStatus] = useState();
   const [result, setResult] = useState(false);
   const [easy, setEasy] = useState(true);
 
+  // Function to return a random element from array
   const random = () => {
     let arr;
     if(easy){
@@ -35,9 +43,15 @@ function App() {
     let randomIndex = Math.floor(Math.random() * len);
     return arr[randomIndex];
   }
-  function showResult(key,i){
+
+  // Function to decide Result
+  function checkResult(key,i){
     setResult(true);
+
+    // Switch statement to decide who won or lost
     switch(random()){
+
+      // The house picked paper
       case "paper":
         if(key === "paper"){
           key = "paper1";
@@ -59,6 +73,7 @@ function App() {
 
         break;
 
+      // The house picked scissor
       case "scissor":
         if(key === "scissor"){
           key = "scissor1";
@@ -80,6 +95,7 @@ function App() {
         }
         break;
       
+      // The house picked rock
       case "rock":
         if(key === "rock"){
           key = "rock1";
@@ -101,54 +117,59 @@ function App() {
         }
         break;
 
-        case "lizard": 
-          if(key === "lizard"){
-            key = "lizard1";
-          } 
+      // The house picked lizard
+      case "lizard": 
+        if(key === "lizard"){
+          key = "lizard1";
+        } 
 
-          setDisplay({ 
-            [key] : i, 
-            "lizard": imgArr[3]
-          });
+        setDisplay({ 
+          [key] : i, 
+          "lizard": imgArr[3]
+        });
 
-          if(key === "rock" || key === "rock1" || key === "scissor" || key === "scissor1"){
-            setStatus("You Won!");
-            setScore(prev => prev + 1);
-          }else if(key === "spock" || key === "spock1" || key === "paper" || key === "paper1"){
-            setScore(prev => prev - 1);
-            setStatus("You lose!")
-          }else{
-            setStatus("Draw");
-          }
-          break;
+        if(key === "rock" || key === "rock1" || key === "scissor" || key === "scissor1"){
+          setStatus("You Won!");
+          setScore(prev => prev + 1);
+        }else if(key === "spock" || key === "spock1" || key === "paper" || key === "paper1"){
+          setScore(prev => prev - 1);
+          setStatus("You lose!")
+        }else{
+          setStatus("Draw");
+        }
+        break;
 
-          case "spock":
-            if(key === "spock"){
-              key = "spock1";
-            } 
-    
-            setDisplay({ 
-              [key] : i, 
-              "spock": imgArr[2]
-            });
-    
-            if(key === "lizard" || key === "lizard1" || key === "paper" || key === "paper1"){
-              setStatus("You Won!");
-              setScore(prev => prev + 1);
-            }else if(key === "scissor" || key === "scissor1" || key === "rock" || key === "rock1"){
-              setScore(prev => prev - 1);
-              setStatus("You lose!")
-            }else{
-              setStatus("Draw");
-            }
-            break;
+      // The house picked spock
+      case "spock":
+        if(key === "spock"){
+          key = "spock1";
+        } 
 
-            default:
-              alert("Error");
-              break;
+        setDisplay({ 
+          [key] : i, 
+          "spock": imgArr[2]
+        });
 
+        if(key === "lizard" || key === "lizard1" || key === "paper" || key === "paper1"){
+          setStatus("You Won!");
+          setScore(prev => prev + 1);
+        }else if(key === "scissor" || key === "scissor1" || key === "rock" || key === "rock1"){
+          setScore(prev => prev - 1);
+          setStatus("You lose!")
+        }else{
+          setStatus("Draw");
+        }
+        break;
+
+      // Default case
+      default:
+        alert("Error");
+        break;
     }
+
   }
+
+  // Function to show rules
   const showRules = (e) => {
     let modal = document.getElementById("myModal");
     if(e === "r"){
@@ -158,6 +179,7 @@ function App() {
     }
   }
 
+  // Function to close modal if user touches anywhere on screen
   window.onclick = function(event) {
     let modal = document.getElementById("myModal");
     if (event.target === modal) {
@@ -165,6 +187,7 @@ function App() {
     }
   }
 
+  // Function to replay game
   const replay = () => {
     if(easy){
       setDisplay(easyObj);
@@ -175,6 +198,7 @@ function App() {
     setResult(false);
   }
 
+  // Function to change game from easy to hard and vice-versa
   const changeGame = () => {
     let c = document.getElementById("check");
     if(c.checked === true){
@@ -189,17 +213,25 @@ function App() {
   }
 
   return (
+    // App
     <div className="App">
+
+      {/* Container containing name and score */}
       <div className='name-score'>
+
+         {/* Name */}
         <div id='name'> 
-            <img src={easy ?  "images/logo.svg" : "images/logo-bonus.svg" } alt = "Rock Paper Scissors" id="logo"/>
+            <img src={easy ?  "images/logo.svg" : "images/logo-bonus.svg" } alt = {easy ? "Rock Paper Scissors" : "Rock Paper Scissors Lizard Spock"} id="logo"/>
         </div>
+
+        {/* Score */}
         <div className='score'>
           <span id='score-text'>Score</span>
           <span id='score'>{score}</span>
         </div>
       </div>
 
+      {/* Container containing switch */}
       <div id = "switch-container">
         Easy
         <label className='switch'>
@@ -208,14 +240,17 @@ function App() {
         </label>
         Hard
       </div>
+
+      {/* Buttons */}
       {
         result ? 
         <Result display = {display} status = {status} replay = {replay}/> :       
         <div className= {easy ? 'easybtn-container' : 'hardbtn-container'}>
-          <Buttons display = {display} result = {showResult}/> 
+          <Buttons display = {display} result = {checkResult}/> 
         </div>
       }
 
+      {/* Button to show rules */}
       <button id  = "rules" onClick={() => showRules("r")}>RULES</button>
       
       {/* <!-- The Modal --> */}
@@ -228,7 +263,7 @@ function App() {
             <span className="close" onClick={() => showRules("c")}>&times;</span>
           </div>
           <div>
-            <img src={easy ? 'images/image-rules.svg' : "images/image-rules-bonus.svg"}></img>
+            <img src={easy ? 'images/image-rules.svg' : "images/image-rules-bonus.svg"} alt="Rules to play the game"></img>
           </div>
         </div>
 
@@ -237,49 +272,3 @@ function App() {
     </div>
   );
 }
-
-const Buttons = ({display, result}) => {
-  let array = [];
-  for (const key in display) {
-      let element = (
-        <>
-          <button id = {key} value = {key} className = "button" onClick = {() => result(key, display[key])}>
-            <img src= {display[key]} />
-          </button>
-        </>
-      );
-      array.push(element);
-  }
-  return array;
-}
-
-const Result = ({display, status, replay}) => {
-  let key = [Object.keys(display)[0],Object.keys(display)[1] ];
-  if(status === "You lose!"){
-    document.documentElement.style.setProperty("--status-text", "red");
-  }
-  return (
-    <div className='result-container'>
-      <div className='btn'>
-        <span className='btn-title'>You Picked</span>
-        <button id={key[0]} className = "button">
-          <img src= {display[key[0]]}></img>
-        </button>
-      </div>
-      <div id='status'>
-        <span>
-          {status}
-        </span>
-        <button id='play-again' onClick={replay}>Play Again</button>
-      </div>
-      <div className='btn'>
-        <span className='btn-title'>The House Picked</span>
-        <button id={key[1]} className = "button">
-          <img src= {display[key[1]]}></img>
-        </button>
-      </div>
-    </div>
-  )
-}
-
-export default App;
