@@ -149,7 +149,7 @@ input:checked + .slider:before {
   width: fit-content;
   margin: 0 auto;
   position: relative;
-  top: -30px;
+  top: -20px;
 }
 .hardbtn-container .button{
   position: absolute;
@@ -343,19 +343,19 @@ input:checked + .slider:before {
     left: -150px;
   }
   .hardbtn-container #paper{
-    top: 120px;
+    top: 100px;
   }
   .hardbtn-container #rock{
-    top: 300px;
+    top: 280px;
     left: -30px;
   }
   .hardbtn-container #lizard{
     right: -30px;
-    top: 300px;
+    top: 280px;
   }
   .hardbtn-container #spock{
     right: 50px;
-    top: 120px; 
+    top: 100px; 
   }
 
   /* Result Container */
