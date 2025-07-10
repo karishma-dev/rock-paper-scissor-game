@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Krrish105/rock-paper-scissor-game](https://github.com/Krrish105/rock-paper-scissor-game)
-- Live Site URL: [https://krrish105.github.io/rock-paper-scissor-game/](https://krrish105.github.io/rock-paper-scissor-game/)
+- Solution URL: [https://github.com/karishma-dev/rock-paper-scissor-game](https://github.com/karishma-dev/rock-paper-scissor-game)
+- Live Site URL: [https://karishma-dev.github.io/rock-paper-scissor-game/](https://karishma-dev.github.io/rock-paper-scissor-game/)
 
 ## My process
 
@@ -45,6 +45,6 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [Krrish105](https://www.frontendmentor.io/profile/Krrish105)
+- Frontend Mentor - [karishma-dev](https://www.frontendmentor.io/profile/karishma-dev)
 - Twitter - [_karishma10](https://twitter.com/_karishma10)
-- Codepen - [Krrish105](https://codepen.io/krrish105)
+- Codepen - [karishma-dev](https://codepen.io/karishma-dev)
